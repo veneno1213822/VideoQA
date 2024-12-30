@@ -46,4 +46,10 @@ bash scripts/evaluation/eval_qa_from_gpt3_response.sh
 会运行 eval_video_qa_results.py（generation_gpt3_raw）。<br>
 ① process_gpt3_response_jsonl函数：处理 gpt3_response/ 内的原始GPT结果（i.e.提取"text"），得到 gpt3_response/tmp.jsonl。
 ② evaluate_generation_result_jsonl函数：读取 gpt3_response/tmp.jsonl，控制台输出结果
+#### 这里直接运行：ModifyRun_eval_video_qa_result.py。（MSVD_QA+GPT3）
+运行结果：
+output processed file: ./output_example/msvd_test/gpt_response\tmp.jsonl
+loading all-mpnet-base-v2...
+post-processing prediction...
+0.39173063768336247
 ##### 评估指标：ACC
