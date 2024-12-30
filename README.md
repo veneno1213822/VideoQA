@@ -6,15 +6,22 @@
 ### 1、预处理：调用图片描述模型，得到 帧描述 和 视觉标记
 #### Standalone Pipeline for Frame Captioning and Visual Tokenization” 译为“帧描述与视觉标记化的独立处理流程”
 读取 shared_datasets/，得到 frame_caption/ 和 visual_tokenization_clip/ <br>
-命令行执行 `bash pipeline/scripts/run_frame_captioning_and_visual_tokenization.sh <dataset> train <output_root>`，
+命令行执行 
+```
+bash pipeline/scripts/run_frame_captioning_and_visual_tokenization.sh <dataset> train <output_root>
+```
 
 ### 2、编写交给GPT3的提示
 #### 即生成 prompts，用来指导语言模型(GPT3)生成基于该视频的总结（视频描述）、回答（视频问答），以及其他内容。
 由上一步骤的结果，得到 input_prompts/。
 #### 1）视频描述（caption）：
-```bash pipeline/scripts/generate_gpt3_query_pipeline_caption_with_in_context_selection.sh <dataset> <split> <output_root> 10 42 5 caption或者caption_asr```
+```
+bash pipeline/scripts/generate_gpt3_query_pipeline_caption_with_in_context_selection.sh <dataset> <split> <output_root> 10 42 5 caption或者caption_asr
+```
 #### 2）视频问答（QA）：
-```bash pipeline/scripts/generate_gpt3_query_pipeline_qa_with_in_context_selection.sh <dataset> <split> <output_root> 5 42 5 question```
+```
+bash pipeline/scripts/generate_gpt3_query_pipeline_qa_with_in_context_selection.sh <dataset> <split> <output_root> 5 42 5 question
+```
 
 ### 3、调用GPT3，得到预测结果
 #### GitHub内好像没给出，应该就是调用GPT3的API
